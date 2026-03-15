@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <main class="main ">
+            <div class="input__container">
+                <input type="text" class="input__search-city" placeholder="Search City" data-js-input>
+                <img class="input__search-img" src="search.svg" alt="input__search-img">
+            </div>
+            
+
+            <div class="top-info">
+                <p class="top-info__city-name" data-js-city-name>New York</p>
+                <p class="top-info__day-info" data-js-date-info>Sun, 15 Mar</p>
+            </div>
+
+            <div class="weather">
+                <img  class="weather__state-img"
+                 src="cloud.svg"
+                 alt="weather__state-img"
+                 data-js-weather-icon>
+                <div class="weather__info">
+                    <p class="weather__info-degrees" data-js-weather-info-degrees>29 °C</p>
+                    <p class="weather__info-state" data-js-weather-info-state>Cloudly</p>
+                </div>
+            </div>
+
+            <div class="specifications">
+                <div class="wind-speed">
+                    <img class="wind-speed__img" src="wind_speed.svg" alt="weather__state-img">
+                    <div class="wind-speed__info">
+                        <p class="wind-speed__title">Wind Speed</p>
+                        <p class="wind-speed__spec" data-js-spec-wind-speed>11,2 M/s</p>
+                    </div>
+                    
+                </div>
+
+                <div class="humidity">
+                    <img class="humidity__img" src="humidity.svg" alt="weather__state-img">
+                    <div class="humidity__info">
+                        <p class="humidity__title">Humidity</p>
+                        <p class="humidity__spec" data-js-spec-humidity>75 %</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+
+        </main>
+    </div>
+    
+    <script src="main.js" defer></script>
+</body>
+</html>
