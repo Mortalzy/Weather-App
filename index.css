@@ -43,6 +43,7 @@ body {
 .container {
     width: 500px;
     animation: fadeIn 0.4s ease-out;
+    
 }
 
 .main {
@@ -52,9 +53,8 @@ body {
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
-
 
 .input__search-city {
     position: relative;
@@ -110,6 +110,7 @@ body {
     right: 17px;
     cursor: pointer;
     transition: 0.2s;
+    
 }
 
 
