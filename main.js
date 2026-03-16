@@ -8,6 +8,10 @@ const weatherIconElement = document.querySelector('[data-js-weather-icon]')
 const specWindSpeedElement = document.querySelector('[data-js-spec-wind-speed]')
 const specHumidityElement = document.querySelector('[data-js-spec-humidity]')
 
+const topInfoElement = document.querySelector('.top-info');
+const weatherElement = document.querySelector('.weather');
+const specElement = document.querySelector('.specifications');
+
 const inputElement = document.querySelector('[data-js-input]')
 
 const API_KEY = '77a2634227d5601e37e08ed31b2f713b'
@@ -17,7 +21,10 @@ dateInfoElement.textContent = getDate()
 
 let cityWeather = {}
 
-inputElement.addEventListener('keypress', async (e) => {
+function init() {
+    console.log('DOM загружен');
+    
+    inputElement.addEventListener('keypress', async (e) => {
     if(e.key === "Enter"){
         e.preventDefault()
 
@@ -26,7 +33,8 @@ inputElement.addEventListener('keypress', async (e) => {
             
             try {
                 cityWeather = await getCurrentInfo(cityName)
-                
+
+                addAnimationOnElements()
                 render()
 
             } catch (error) {
@@ -35,9 +43,26 @@ inputElement.addEventListener('keypress', async (e) => {
             }
 
             inputElement.value = ''
+
+            setTimeout(() => {
+                resetAnimationFromElements()
+            }, 400);
         }    
     }
 })
+}
+
+function addAnimationOnElements() {
+    topInfoElement.classList.add('update-animation')
+    weatherElement.classList.add('update-animation')
+    specElement.classList.add('update-animation')
+}
+
+function resetAnimationFromElements() {
+    topInfoElement.classList.remove('update-animation')
+    weatherElement.classList.remove('update-animation')
+    specElement.classList.remove('update-animation')
+}
 
 function render() {
     cityNameElement.textContent = cityWeather.cityName
@@ -100,6 +125,8 @@ async function getCurrentInfo(city) {
         weatherIcon: getWeatherType(data.weather[0].id)
     }
 }
+
+document.addEventListener('DOMContentLoaded', init)
 
 
     
